@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101c35" />
+  <meta name="description" content="Personal portfolio of Inzhu Edige — geography, languages, travel, and creative projects." />
+  <title>Inzhu Edige — Personal Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: light-dark(#f7f5f0, #101725);
+      --surface: light-dark(#fffefa, #182235);
+      --surface-2: light-dark(#eeece5, #202d43);
+      --text: light-dark(#18233a, #f4f2ed);
+      --muted: light-dark(#647086, #aeb8c9);
+      --line: light-dark(#dddcd5, #344159);
+      --accent: light-dark(#244a86, #a9c7ff);
+      --accent-ink: light-dark(#ffffff, #101725);
+      --warm: light-dark(#d9a96a, #e8bd83);
+      --shadow: 0 20px 60px rgba(15, 28, 53, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .site { min-height: 100vh; background: var(--bg); }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.04em; }
+    .monogram { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: #203e70; font-size: 13px; letter-spacing: .06em; }
+    .navlinks { display: flex; gap: 25px; align-items: center; color: var(--muted); font-size: 13px; }
+    .navlinks a:hover, .text-link:hover { color: var(--accent); }
+    .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; color: var(--text); background: var(--surface); cursor: pointer; font-size: 12px; }
+    .hero { display: grid; grid-template-columns: 1.35fr .65fr; gap: 54px; align-items: center; padding: 88px 0 82px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 800; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--warm); }
+    h1 { margin: 18px 0 20px; font-size: clamp(48px, 7vw, 82px); line-height: .98; letter-spacing: -.075em; font-weight: 760; }
+    h1 span { color: var(--accent); }
+    .hero-copy { max-width: 610px; color: var(--muted); font-size: 17px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 18px; border-radius: 999px; font-weight: 700; font-size: 13px; transition: transform .2s ease, opacity .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #203e70; color: #fff; }
+    .btn-secondary { border: 1px solid var(--line); background: var(--surface); }
+    .hero-card { position: relative; padding: 27px; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
+    .hero-card:before { content: ""; position: absolute; width: 180px; height: 180px; right: -70px; top: -80px; border-radius: 50%; background: var(--surface-2); }
+    .orbit { position: relative; display: grid; place-items: center; min-height: 230px; }
+    .orbit-ring { width: 190px; height: 190px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; transform: rotate(-18deg); }
+    .orbit-ring:before { content: ""; position: absolute; width: 130px; height: 130px; border: 1px dashed var(--line); border-radius: 50%; }
+    .orbit-core { width: 94px; height: 94px; border-radius: 28px; display: grid; place-items: center; background: #203e70; color: white; font-size: 24px; font-weight: 750; letter-spacing: -.07em; transform: rotate(18deg); box-shadow: 0 10px 30px rgba(32,62,112,.24); }
+    .orbit-tag { position: absolute; border: 1px solid var(--line); background: var(--surface); padding: 7px 11px; border-radius: 999px; color: var(--muted); font-size: 11px; }
+    .tag-one { top: 17px; left: 0; }.tag-two { right: -4px; top: 69px; }.tag-three { bottom: 12px; left: 28px; }
+    .card-foot { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .card-foot strong { color: var(--text); font-weight: 700; }
+    .section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 30px; }
+    .kicker { color: var(--accent); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; }
+    h2 { font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter-spacing: -.055em; margin: 9px 0 0; }
+    .section-intro { max-width: 440px; margin: 0; color: var(--muted); font-size: 14px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .panel { padding: 25px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
+    .panel h3 { margin: 0 0 10px; font-size: 16px; letter-spacing: -.025em; }
+    .panel p { margin: 0; color: var(--muted); font-size: 14px; }
+    .values { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 7px 11px; color: var(--muted); font-size: 11px; }
+    .experience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .experience { padding: 23px; border-radius: 20px; border: 1px solid var(--line); background: var(--surface); min-height: 220px; display: flex; flex-direction: column; }
+    .experience .number { color: var(--warm); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
+    .experience h3 { margin: 24px 0 9px; font-size: 18px; letter-spacing: -.035em; }
+    .experience p { margin: 0; color: var(--muted); font-size: 13px; }
+    .experience .tagline { margin-top: auto; padding-top: 20px; color: var(--accent); font-size: 11px; font-weight: 750; }
+    .interest-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .interest { padding: 20px; background: var(--surface-2); border-radius: 18px; min-height: 145px; }
+    .interest .symbol { font-size: 23px; margin-bottom: 20px; }
+    .interest h3 { margin: 0 0 5px; font-size: 15px; }
+    .interest p { margin: 0; font-size: 12px; color: var(--muted); }
+    .quote { padding: 34px; background: #203e70; color: white; border-radius: 24px; display: flex; justify-content: space-between; gap: 25px; align-items: end; }
+    .quote blockquote { max-width: 720px; font-size: clamp(22px, 3vw, 32px); letter-spacing: -.04em; line-height: 1.25; margin: 0; }
+    .quote span { font-size: 12px; color: #d2dff3; white-space: nowrap; }
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+    .contact-copy { color: var(--muted); max-width: 460px; }
+    .contact-card { padding: 25px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
+    .contact-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .contact-row:last-child { border-bottom: 0; }.contact-row span { color: var(--muted); }
+    .text-link { color: var(--accent); font-weight: 700; }
+    .cv-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+    .cv-list { margin: 0; padding-left: 19px; color: var(--muted); font-size: 14px; }
+    .cv-list li { margin: 7px 0; }
+    .cv-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .cv-note { color: var(--muted); font-size: 12px; margin-top: 12px; }
+    @media print {
+      body, .site { background: #fff !important; color: #18233a !important; }
+      header, #about, #experience, #interests, #contact, .quote-section, footer, .cv-actions, .cv-note { display: none !important; }
+      #cv { display: block !important; border: 0 !important; padding: 0 !important; }
+      #cv .wrap { width: 100%; }
+      #cv .panel { break-inside: avoid; background: #fff !important; border-color: #ddd !important; }
+      #cv .section-head { margin-bottom: 18px; }
+      #cv h2 { font-size: 30px; }
+    }
+    footer { border-top: 1px solid var(--line); padding: 23px 0 30px; color: var(--muted); font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 30px, 560px); }
+      .nav { padding: 17px 0; }.navlinks { gap: 12px; }.navlinks a { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 35px; padding: 62px 0 55px; }.hero-card { max-width: 440px; width: 100%; margin: 0 auto; }
+      .section { padding: 55px 0; }.section-head { display: block; }.section-intro { margin-top: 15px; }
+      .about-grid, .contact { grid-template-columns: 1fr; }.experience-grid { grid-template-columns: 1fr; }.experience { min-height: 190px; }
+      .interest-grid { grid-template-columns: repeat(2, 1fr); }.quote { display: block; padding: 25px; }.quote span { display: block; margin-top: 18px; }
+      .footer-inner { display: block; }.footer-inner span { display: block; margin-top: 5px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="site" id="top">
+    <header class="wrap">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Inzhu Edige home"><span class="monogram">IE</span><span>Inzhu Edige</span></a>
+        <div class="navlinks"><a href="#about">About</a><a href="#experience">Experience</a><a href="#cv">CV</a><a href="#interests">Interests</a><a href="#contact">Contact</a><button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">◐ Theme</button></div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero wrap">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Curious by nature · Growing by experience</div>
+          <h1>Hi, I’m<br><span>Inzhu Edige.</span></h1>
+          <p class="hero-copy">A geography student with a love for languages, travel, and discovering how people and places connect. I’m building my skills, collecting experiences, and staying curious about what comes next.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#about">Get to know me <span aria-hidden="true">↘</span></a><a class="btn btn-secondary" href="#experience">Explore my journey</a></div>
+        </div>
+        <aside class="hero-card" aria-label="A snapshot of Inzhu's interests">
+          <div class="orbit"><span class="orbit-tag tag-one">Geography</span><span class="orbit-tag tag-two">Languages</span><span class="orbit-tag tag-three">Travel</span><div class="orbit-ring"><div class="orbit-core">IE</div></div></div>
+          <div class="card-foot"><span><strong>Based in</strong><br>Astana, Kazakhstan</span><span style="text-align:right"><strong>Always learning</strong><br>One experience at a time</span></div>
+        </aside>
+      </section>
+      <section class="section" id="about"><div class="wrap">
+        <div class="section-head"><div><div class="kicker">01 / About me</div><h2>Curious about the world<br>and the people in it.</h2></div><p class="section-intro">I enjoy learning by doing, meeting people with different perspectives, and turning new experiences into opportunities to grow.</p></div>
+        <div class="about-grid">
+          <article class="panel"><h3>My background</h3><p>I study geography and enjoy exploring the relationship between people, places, and the environment. I’m especially interested in practical research, digital mapping, and understanding the challenges that shape different regions.</p><div class="values"><span class="pill">Geography & GIS</span><span class="pill">Research</span><span class="pill">Environmental topics</span></div></article>
+          <article class="panel"><h3>How I work</h3><p>I’m adaptable, responsible, and comfortable working both independently and as part of a team. I learn best by seeing how something is done, trying it myself, and improving as I go.</p><div class="values"><span class="pill">Teamwork</span><span class="pill">Fast learner</span><span class="pill">Communication</span><span class="pill">Open-minded</span></div></article>
+        </div>
+      </div></section>
+      <section class="section" id="experience"><div class="wrap">
+        <div class="section-head"><div><div class="kicker">02 / Experience</div><h2>Learning beyond<br>the classroom.</h2></div><p class="section-intro">Every role and project has taught me something about communication, responsibility, and working with people.</p></div>
+        <div class="experience-grid">
+          <article class="experience"><span class="number">01 — WORK</span><h3>Hospitality & guest service</h3><p>Experience in a breakfast restaurant helped me practise customer service, teamwork, time management, and staying organised in a busy environment.</p><div class="tagline">Service · Teamwork · Adaptability</div></article>
+          <article class="experience"><span class="number">02 — INTERNATIONAL</span><h3>Work & Travel USA</h3><p>My summer in the United States gave me a chance to experience everyday life in a different culture, meet new people, and use English in real situations.</p><div class="tagline">Cultural exchange · Independence</div></article>
+          <article class="experience"><span class="number">03 — ACADEMIC</span><h3>Geography & digital mapping</h3><p>My academic interests include environmental research, regional geography, and using GIS tools to explore and communicate spatial information.</p><div class="tagline">GIS · Analysis · Curiosity</div></article>
+        </div>
+      </div></section>
+      <section class="section" id="cv"><div class="wrap">
+        <div class="section-head"><div><div class="kicker">03 / Curriculum vitae</div><h2>A snapshot of my<br>experience and skills.</h2></div><p class="section-intro">A concise CV you can print or save as a PDF. Update the placeholders with your exact education dates and contact details before sharing.</p></div>
+        <div class="cv-layout">
+          <article class="panel"><h3>Profile</h3><p>Geography student based in Astana, Kazakhstan, interested in environmental research, GIS and digital mapping, languages, and international cultural exchange. Adaptable and responsible, with experience in hospitality and customer service.</p><h3 style="margin-top:22px">Experience</h3><ul class="cv-list"><li><strong>Breakfast restaurant —</strong> guest service, teamwork, time management, and working in a busy environment.</li><li><strong>Work &amp; Travel USA —</strong> cultural exchange, communication in English, independence, and adapting to a new environment.</li></ul><h3 style="margin-top:22px">Education</h3><p>Geography studies · University and study dates to be added</p></article>
+          <article class="panel"><h3>Skills</h3><div class="values"><span class="pill">Teamwork</span><span class="pill">Communication</span><span class="pill">Adaptability</span><span class="pill">Customer service</span><span class="pill">Time management</span><span class="pill">GIS &amp; digital mapping</span><span class="pill">Research</span><span class="pill">Fast learner</span></div><h3 style="margin-top:24px">Languages</h3><p>English — add your current level<br>Other languages — add language and level</p><h3 style="margin-top:24px">Interests</h3><p>Travel, volleyball, football, dancing, blogging, and language learning.</p><div class="cv-actions"><button class="btn btn-primary" type="button" onclick="window.print()">Print / Save as PDF ↗</button><a class="btn btn-secondary" href="#contact">Contact details</a></div><p class="cv-note">Tip: choose “Save as PDF” in your browser’s print dialog.</p></article>
+        </div>
+      </div></section>
+      <section class="section" id="interests"><div class="wrap">
+        <div class="section-head"><div><div class="kicker">03 / Outside the classroom</div><h2>Things that make<br>life feel bigger.</h2></div><p class="section-intro">A mix of movement, creativity, exploration, and connection keeps me inspired.</p></div>
+        <div class="interest-grid">
+          <article class="interest"><div class="symbol" aria-hidden="true">✦</div><h3>Languages</h3><p>Practising English and discovering new ways to communicate.</p></article>
+          <article class="interest"><div class="symbol" aria-hidden="true">↗</div><h3>Travel</h3><p>Exploring new places, cultures, and local stories.</p></article>
+          <article class="interest"><div class="symbol" aria-hidden="true">◎</div><h3>Sports & dance</h3><p>Volleyball, football, and dancing for energy and balance.</p></article>
+          <article class="interest"><div class="symbol" aria-hidden="true">◌</div><h3>Blogging</h3><p>Capturing moments and sharing little pieces of everyday life.</p></article>
+        </div>
+      </div></section>
+      <section class="section"><div class="wrap"><div class="quote"><blockquote>“Stay curious, say yes to meaningful experiences, and keep growing into the person you want to become.”</blockquote><span>A note to myself ✷</span></div></div></section>
+      <section class="section" id="contact"><div class="wrap contact">
+        <div><div class="kicker">04 / Say hello</div><h2>Let’s connect.</h2><p class="contact-copy">I’m always happy to meet people who are curious about geography, languages, travel, or new ideas. Add your preferred contact links below before publishing.</p></div>
+        <div class="contact-card"><div class="contact-row"><span>Location</span><strong>Astana, Kazakhstan</strong></div><div class="contact-row"><span>GitHub</span><a class="text-link" href="https://github.com/" target="_blank" rel="noreferrer">Add your profile ↗</a></div><div class="contact-row"><span>Instagram</span><a class="text-link" href="https://instagram.com/" target="_blank" rel="noreferrer">Add your profile ↗</a></div><div class="contact-row"><span>Email</span><a class="text-link" href="mailto:hello@example.com">Replace with your email ↗</a></div></div>
+      </div></section>
+    </main>
+    <footer><div class="wrap footer-inner"><div>© <span id="year"></span> Inzhu Edige. Made with curiosity.</div><span>Personal portfolio · GitHub Pages ready</span></div></footer>
+  </div>
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      const dark = document.documentElement.dataset.theme !== 'dark';
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+      toggle.textContent = dark ? '☼ Light' : '◐ Theme';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
